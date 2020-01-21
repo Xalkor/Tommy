@@ -1,0 +1,77 @@
+<html>
+<body onresize="resize_canvas()">
+        <canvas style="position:absolute; top:0px; left:0px" id="canvas">Your browser doesn't support canvas</canvas>
+
+<h2>This is the homepage for all things <i>Tommy Alvarez Appreciation Club! ™</i></h2>
+<img src="tommy.jpg"></img>
+
+<h4>Meeting this Sunday (1/26)! <p id="whoop">WHOOP WHOOP!!</p></h4>
+
+<p>Do you appreciate Tommy? <br><br>
+If so this is the place for you. Join us for meetings discussing why we love Tommy! <br><br>
+If not come and learn all of the wonderful reasons we love Tommy!<p>
+
+<script>
+	let canvas = document.getElementsByTagName("canvas")[0];
+	canvas.width  = window.innerWidth;
+	canvas.height  = window.innerHeight;
+	
+	let mouseX = 0, mouseY = 0;
+	
+	let ctx = canvas.getContext("2d");
+
+	let whoop = document.getElementById('whoop');
+	let msg = "WHOOP WHOOP!!";
+	let i = 0;
+	
+	f(i);
+	
+	function f(i){
+		let tmp = ""
+		for(let n = 0; n < msg.length; n++){
+			if(n == i){
+				tmp += msg[n].toLowerCase();
+			}else{
+				tmp += msg[n];
+			}
+		}
+		whoop.innerText = tmp;
+		setTimeout(() => f((i + 1) % msg.length), 500);
+	}
+	
+	function resize_canvas(){
+            canvas = document.getElementById("canvas");
+            if (canvas.width  < window.innerWidth)
+            {
+                canvas.width  = window.innerWidth;
+            }
+
+            if (canvas.height < window.innerHeight)
+            {
+                canvas.height = window.innerHeight;
+            }
+    }
+	
+	onmousemove = function(e){mouseX = e.pageX; mouseY = e.pageY}
+
+	parts = [];
+	for(let i = 0; i < 100; i++){
+		let r = Math.random()*25 + 10;
+		parts.push({r: r, a: Math.random()*6.28, speed: 0.2/r, dir: Math.random() < 0.5 ? -1 : 1});//(Math.random()*.05)-.025});
+	}
+	
+	setInterval(()=>{
+		ctx.clearRect(0,0,canvas.width,canvas.height);
+		
+		for(let part of parts){
+			ctx.beginPath();
+			ctx.arc(mouseX + part.r * Math.cos(part.a), mouseY + part.r * Math.sin(part.a), 4, 0, 6.28, false);
+			ctx.fillStyle = 'hsla(' + Math.floor((part.r-10)/25*360) + ', 100%, 50%, 1)';
+			ctx.fill();
+			part.a += part.dir*part.speed;
+		}
+	}, 1);
+	
+</script>
+</body>
+</html>
