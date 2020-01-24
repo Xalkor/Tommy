@@ -1,21 +1,61 @@
 <html>
+
+<style>
+h2{
+	text-align: center;
+	font: 32px brush script MT;
+}
+h4{
+	text-align: center;
+}
+div{
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+p{
+	text-align: center;
+}
+body{
+	background-color:LIGHTCYAN;
+	overflow-x: hidden;
+}
+iframe{
+	border: none
+}
+</style>
+
 <body onresize="resize_canvas()">
-        <canvas style="position:absolute; top:0px; left:0px" id="canvas">Your browser doesn't support canvas</canvas>
 
-<h2>This is the homepage for all things <i>Tommy Alvarez Appreciation Club! ™</i></h2>
-<img src="tommy.jpg"></img>
+<h2>This is the homepage for all things <i>Tommy Alvarez Appreciation Club!™</i></h2>
+<div>
+	<iframe src="https://editor.p5js.org/xalkor/embed/h5p7zdfr4" width="488" height="431"></iframe>
+	<img src="tommy.jpg"></img>
+	<iframe src="https://editor.p5js.org/xalkor/embed/h5p7zdfr4" width="488" height="431"></iframe>
+</div>
 
-<h4>Meeting this Sunday (1/26)! <p id="whoop">WHOOP WHOOP!!</p></h4>
+<h4>Meeting this Sunday (1/26)! </h4>
+<h2 id="whoop" style="text-align: center; font: 24px consolas;">WHOOP WHOOP!!</h2>
 
 <p>Do you appreciate Tommy? <br><br>
-If so this is the place for you. Join us for meetings discussing why we love Tommy! <br><br>
-If not come and learn all of the wonderful reasons we love Tommy!<p>
+<p>If so, this is the place for you. Join us for meetings discussing why we love Tommy!<p> <br>
+If not, come and learn all of the wonderful reasons we love Tommy!<p>
 
-<script>
-	let canvas = document.getElementsByTagName("canvas")[0];
-	canvas.width  = window.innerWidth;
-	canvas.height  = window.innerHeight;
-	
+<div style="background-color:PAPAYAWHIP">
+<p>Want a copy of our excellent poster?</p>
+<a href="Tommy Alvarez Appreciation Club.pdf" target="_blank" download>
+  <img src="download-button.png" width="126" height="42">
+</a>
+
+</div>
+<div style="background-color:PAPAYAWHIP">
+<p>Want to view the powerpoint for the 1/26 meeting?</p>
+<a href="https://docs.google.com/presentation/d/1mwjraYHDMWWS71_7UjygpysYbHGbWQ-zuoSbu243iV8" target="_blank">
+  <img src="view.jpg" width="170" height="40">
+</a>
+</div>
+<script>	
 	let mouseX = 0, mouseY = 0;
 	
 	let ctx = canvas.getContext("2d");
@@ -38,39 +78,6 @@ If not come and learn all of the wonderful reasons we love Tommy!<p>
 		whoop.innerText = tmp;
 		setTimeout(() => f((i + 1) % msg.length), 500);
 	}
-	
-	function resize_canvas(){
-            canvas = document.getElementById("canvas");
-            if (canvas.width  < window.innerWidth)
-            {
-                canvas.width  = window.innerWidth;
-            }
-
-            if (canvas.height < window.innerHeight)
-            {
-                canvas.height = window.innerHeight;
-            }
-    }
-	
-	onmousemove = function(e){mouseX = e.pageX; mouseY = e.pageY}
-
-	parts = [];
-	for(let i = 0; i < 100; i++){
-		let r = Math.random()*25 + 10;
-		parts.push({r: r, a: Math.random()*6.28, speed: 0.2/r, dir: Math.random() < 0.5 ? -1 : 1});//(Math.random()*.05)-.025});
-	}
-	
-	setInterval(()=>{
-		ctx.clearRect(0,0,canvas.width,canvas.height);
-		
-		for(let part of parts){
-			ctx.beginPath();
-			ctx.arc(mouseX + part.r * Math.cos(part.a), mouseY + part.r * Math.sin(part.a), 4, 0, 6.28, false);
-			ctx.fillStyle = 'hsla(' + Math.floor((part.r-10)/25*360) + ', 100%, 50%, 1)';
-			ctx.fill();
-			part.a += part.dir*part.speed;
-		}
-	}, 1);
 	
 </script>
 </body>
