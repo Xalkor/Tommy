@@ -24,6 +24,7 @@ function draw() {
   const N = msg.length;
   
   colorMode(RGB);
+  fill(51);
   rect(width/3, 0, width-(2*width/3), height);
   
   if(blocks.length < N) {
