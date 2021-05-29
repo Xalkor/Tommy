@@ -14,6 +14,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+   background(51);
 }
 
 let t = 0;
@@ -22,7 +23,7 @@ function draw() {
   const N = msg.length;
   
   colorMode(RGB);
-  background(51);
+  rect(width/3, 0, width-(2*width/3), height);
   
   if(blocks.length < N) {
 
