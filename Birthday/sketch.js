@@ -33,7 +33,7 @@ function draw() {
     tint(blocks.length/N*360, 100, 100);
     image(
       tommy.get(0, tommy.height-((blocks.length+1)*tommy.height/N), tommy.width, tommy.height/N),
-      0, p*(height-((blocks.length+1)*height/N)), width, height/N
+      width/3, p*(height-((blocks.length+1)*height/N)), width-(2*width/3), height/N
     );
     textAlign(CENTER, CENTER);
     textSize(32);
@@ -45,11 +45,11 @@ function draw() {
     if(t >= 1) {
       t = 0;
       blocks.push({
-        x:-1,
+        x:width/3-1,
         y:height-((blocks.length+1)*height/N)-1,
         tx:width/2,
         ty:height-((blocks.length+1)*height/N)+height/N/2,
-        w:width+1,
+        w:width-(2*width/3)+1,
         h:height/N+1,
         img:tommy.get(0, tommy.height-((blocks.length+1)*tommy.height/N), tommy.width, tommy.height/N),
         c1:color(blocks.length/N*360, 100, 100),
