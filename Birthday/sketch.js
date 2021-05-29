@@ -70,8 +70,8 @@ function draw() {
     
     for(let i = 0; i < blocks.length; i++) {
       let block = blocks[i];
-      block.x = block.ox1 + (i%2==0?-1:1) * p*width;
-      block.tx = block.ox2 + (i%2==0?-1:1) * p*width;
+      block.x = block.ox1 + (i%2==0?-1:1) * p*2*width/3;
+      block.tx = block.ox2 + (i%2==0?-1:1) * p*2*width/3;
     }
     
     t += 1/64;
