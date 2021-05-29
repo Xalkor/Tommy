@@ -77,6 +77,7 @@ function draw() {
       index++;
       if(index >= msgs.length) index = 0;
       msg = msgs[index];
+      colorMode(RGB);background(51);
     }
   }
   for(let block of blocks) {
