@@ -9,7 +9,7 @@ let msg = msgs[index];
 let tommy;
 
 function preload() {
-  tommy = loadImage("IMG_6190.jpg");
+  tommy = loadImage("untitled (4).png");
 }
 
 function setup() {
