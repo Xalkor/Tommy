@@ -14,8 +14,8 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-   background(51);
   pixelDensity(1);
+  background(51);
 }
 
 let t = 0;
@@ -65,8 +65,8 @@ function draw() {
     
     for(let i = 0; i < blocks.length; i++) {
       let block = blocks[i];
-      block.x += (i%2==0?-1:1) * p*width/2;
-      block.tx += (i%2==0?-1:1) * p*width/2;
+      block.x += (i%2==0?-1:1) * p*width/3;
+      block.tx += (i%2==0?-1:1) * p*width/3;
     }
     
     t += 1/64;
