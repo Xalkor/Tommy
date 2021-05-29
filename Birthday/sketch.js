@@ -25,6 +25,7 @@ function draw() {
   
   colorMode(RGB);
   fill(51);
+  noStroke();
   rect(width/3, 0, width-(2*width/3), height);
   
   if(blocks.length < N) {
@@ -65,8 +66,8 @@ function draw() {
     
     for(let i = 0; i < blocks.length; i++) {
       let block = blocks[i];
-      block.x += (i%2==0?-1:1) * p*width/3;
-      block.tx += (i%2==0?-1:1) * p*width/3;
+      block.x = (i%2==0?-1:1) * p*width/2;
+      block.tx = (i%2==0?-1:1) * p*width/2;
     }
     
     t += 1/64;
