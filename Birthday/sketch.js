@@ -49,15 +49,15 @@ function draw() {
     if(t >= 1) {
       t = 0;
       blocks.push({
-        ox1:width/3-1,
-        oy1:height-((blocks.length+1)*height/N)-1,
+        ox1:width/3,
+        oy1:height-((blocks.length+1)*height/N),
         ox2:width/2,
         oy2:height-((blocks.length+1)*height/N)+height/N/2,
-        x:width/3-1,
+        x:width/3,
         y:height-((blocks.length+1)*height/N)-1,
         tx:width/2,
         ty:height-((blocks.length+1)*height/N)+height/N/2,
-        w:width-(2*width/3)+1,
+        w:width-(2*width/3),
         h:height/N+1,
         img:tommy.get(0, tommy.height-((blocks.length+1)*tommy.height/N), tommy.width, tommy.height/N),
         c1:color(blocks.length/N*360, 100, 100),
@@ -70,8 +70,8 @@ function draw() {
     
     for(let i = 0; i < blocks.length; i++) {
       let block = blocks[i];
-      block.x = block.ox1 + (i%2==0?-1:1) * p*width/2;
-      block.tx = block.ox2 + (i%2==0?-1:1) * p*width/2;
+      block.x = block.ox1 + (i%2==0?-1:1) * p*width;
+      block.tx = block.ox2 + (i%2==0?-1:1) * p*width;
     }
     
     t += 1/64;
