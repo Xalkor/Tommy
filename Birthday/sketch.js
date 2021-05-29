@@ -15,6 +15,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
    background(51);
+  pixelDensity(1);
 }
 
 let t = 0;
